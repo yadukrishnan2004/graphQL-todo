@@ -1,7 +1,14 @@
 package utils
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
+
+func init() {
+	os.Setenv("JWT_SECRET", "supersecret")
+}
 func TestGenerateToken(t *testing.T) {
 
 	token, err := GenerateToken(1)
