@@ -1,0 +1,30 @@
+type Todo {
+  id: ID!
+  title: String!
+  done: Boolean!
+  user: User!
+}
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  todos: [Todo!]!
+}
+
+type Query {
+  me: User
+  users: [User!]!
+}
+
+type Mutation {
+  register(username: String!, email: String!, password: String!): String!
+  login(email: String!, password: String!): String!
+
+  createTodo(title: String!): Todo!
+  toggleTodo(id: ID!): Todo!
+  deleteTodo(id: ID!): Boolean!
+
+  updateUser(username: String!): User!
+  deleteUser: Boolean!
+}
